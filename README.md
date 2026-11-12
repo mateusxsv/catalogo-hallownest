@@ -1,42 +1,42 @@
-# Catálogo de Hallownest — edição visual
+# Catálogo de Hallownest
 
-Atualização do App.js da versão inicial. Mantém as 5 categorias, consulta à HallownestAPI, paginação, detalhes e pesquisa local.
+Aplicativo mobile desenvolvido com React Native e Expo para consultar informações de Hollow Knight usando a HallownestAPI.
 
-## Instalar a fonte
+## Funcionalidades
+- Consulta de chefes, personagens, regiões, amuletos e habilidades.
+- Pesquisa local nos registros carregados.
+- Paginação para carregar mais resultados.
+- Tela de detalhes.
+- Navegação com React Navigation.
+- Interface com React Native Paper.
+- Favoritos persistidos no dispositivo com AsyncStorage.
 
-No terminal, dentro do projeto Expo existente:
+## Tecnologias
+React Native, Expo, HallownestAPI, React Navigation, React Native Paper, AsyncStorage e Expo Google Fonts (Cinzel).
 
+## Executar
 ```bash
-npx expo install expo-font @expo-google-fonts/cinzel
+npm install
+npx expo start
+```
+Leia o QR Code com o Expo Go.
+
+## Estrutura
+```text
+src/
+  components/ArchiveCard.js
+  constants/categories.js
+  context/FavoritesContext.js
+  navigation/AppNavigator.js
+  screens/
+    HomeScreen.js
+    CategoryScreen.js
+    DetailScreen.js
+    FavoritesScreen.js
+  services/api.js
+  storage/favorites.js
 ```
 
-Substitua o **App.js** pelo arquivo incluído neste pacote. Depois execute:
+Os favoritos são armazenados localmente no aparelho. A pesquisa considera os registros já carregados; a API fornece paginação para carregar mais. A disponibilidade de imagens depende dos dados retornados.
 
-```bash
-npx expo start -c
-```
-
-As imagens dos registros são carregadas da API quando disponíveis. Quando um registro não tiver imagem, ou o serviço externo bloquear o carregamento, um ícone substituto aparecerá.
-
-## GitHub — comandos
-
-Crie primeiro um repositório VAZIO chamado `catalogo-de-hallownest` no GitHub e rode na raiz do seu projeto Expo:
-
-```bash
-git init
-git add .
-git commit -m "feat: catalogo de hallownest com tema e ilustracoes"
-git branch -M main
-git remote add origin https://github.com/SEU-USUARIO/catalogo-de-hallownest.git
-git push -u origin main
-```
-
-Se o Git já estiver inicializado, não precisa repetir `git init`. Se `origin` já existir, use `git remote set-url origin URL`.
-
-## Publicação
-
-- **GitHub** hospeda o código, mas não publica automaticamente o app mobile.
-- **Android:** use o EAS Build do Expo para gerar um APK instalável; o Expo Go é apenas ambiente de testes.
-- **Web:** necessita suporte web no projeto; após instalar dependências para web e testar, exporte com `npx expo export --platform web` e publique em hospedagem de arquivos estáticos ou EAS Hosting. Não é necessário para a entrega mobile.
-
-Projeto de fãs, não comercial. Os dados da HallownestAPI são licenciados sob CC BY-NC-SA 4.0; imagens externas têm suas próprias licenças e exigências de atribuição. Consulte o repositório da API.
+Projeto de fãs, sem finalidade comercial. Hollow Knight e seus elementos pertencem aos respectivos titulares. Dados consultados da HallownestAPI. Verifique as licenças da API e de imagens de terceiros antes de redistribuir conteúdo.
